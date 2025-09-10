@@ -1,30 +1,31 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../config/database');
 
-const Curso = sequelize.define('Curso', {
-  id_curso: {
+const Unidad = sequelize.define('Unidad', {
+  id_unidad: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
-    field: 'id_curso'
+    field: 'id_unidad'
   },
-  nombre_curso: {
+  titulo_unidad: {
     type: DataTypes.STRING(200),
     allowNull: false,
-    field: 'nombre_curso'
+    field: 'titulo_unidad'
   },
   descripcion: {
     type: DataTypes.TEXT,
     allowNull: true
   },
-  estado: {
-    type: DataTypes.STRING(20),
-    defaultValue: 'activo'
-  },
-  id_usuario: {
+  numero_unidad: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    field: 'id_usuario'
+    field: 'numero_unidad'
+  },
+  id_curso: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    field: 'id_curso'
   },
   created_at: {
     type: DataTypes.DATE,
@@ -37,9 +38,9 @@ const Curso = sequelize.define('Curso', {
     field: 'updated_at'
   }
 }, {
-  tableName: 'curso',
+  tableName: 'unidad',
   schema: 'cursos',
-  timestamps: false, // Ya tenemos created_at y updated_at manuales
+  timestamps: false,
 });
 
-module.exports = Curso;
+module.exports = Unidad;
